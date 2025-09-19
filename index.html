@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Verification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="verification-card">
+            <div class="header">
+                <h1>Mobile Verification</h1>
+                <p class="subtitle">Secure your account with OTP verification</p>
+            </div>
+
+            <!-- Mobile Number Input Section -->
+            <div id="mobile-section" class="section active">
+                <div class="input-group">
+                    <label for="mobile-number">Mobile Number</label>
+                    <div class="input-wrapper">
+                        <span class="country-code">+91</span>
+                        <input 
+                            type="tel" 
+                            id="mobile-number" 
+                            placeholder="Enter your 10-digit mobile number"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                        >
+                    </div>
+                    <span class="error-message" id="mobile-error"></span>
+                </div>
+                <button id="send-otp-btn" class="btn btn-primary" disabled>
+                    Send OTP
+                </button>
+            </div>
+
+            <!-- OTP Input Section -->
+            <div id="otp-section" class="section">
+                <div class="otp-info">
+                    <p>OTP sent to <span id="display-number"></span></p>
+                    <a href="#" id="change-number">Change number</a>
+                </div>
+                
+                <div class="sms-status" id="sms-status">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Processing...</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="otp-input">Enter OTP</label>
+                    <div class="otp-input-wrapper">
+                        <input 
+                            type="text" 
+                            id="otp-input" 
+                            placeholder="Enter 6-digit OTP"
+                            maxlength="6"
+                            pattern="[0-9]{6}"
+                        >
+                        <span class="timer" id="otp-timer">Resend in 60s</span>
+                    </div>
+                    <span class="error-message" id="otp-error"></span>
+                </div>
+                
+                <button id="verify-otp-btn" class="btn btn-primary" disabled>
+                    Verify OTP
+                </button>
+                
+                <button id="resend-otp-btn" class="btn btn-secondary" disabled>
+                    Resend OTP
+                </button>
+            </div>
+
+            <!-- Success Section -->
+            <div id="success-section" class="section">
+                <div class="success-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="32" fill="#4CAF50"/>
+                        <path d="M26 32L30 36L38 28" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Number Verified Successfully!</h2>
+                <p>Your mobile number has been verified successfully.</p>
+                <button id="continue-btn" class="btn btn-primary">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
